@@ -78,14 +78,21 @@
       }
     }
 
+    .episode {
+      margin-top: 1vh;
+      border-top: dashed 0.3vh black;
+      border-width: 50%;
+    }
+
     .episode-embed {}
 
     .episode-description {}
 
     .episode-title {
-      font-size: 1em;
+      font-size: 2em;
       margin-bottom: 1em;
       margin-left: 1em;
+      margin-top: 1vh;
     }
 
     .episodes-subtitle {
@@ -107,22 +114,24 @@
       <span style="text-decoration: line-through;">game</span>
       creators.
     </p>
-    <div class="episodes-subtitle">Listen our episodes here:</div>
-    <div class="episode">
-      <div class=episode-title>Pancelor Itchelor</div>
-      <div class=episode-description></div>
-      <div class=episode-embed>
+    <div class="episodes">
+      <div class="episodes-subtitle">Listen our episodes here:</div>
+      <div class="episode">
+        <div class=episode-title>Pancelor Itchelor</div>
+        <div class=episode-description>we talk to our friend <a href="https://pancelor.itch.io">pancelor</a> about the cool pico-8 stuff they do.
+        </div>
+        <div class=episode-embed>
+        </div>
       </div>
-    </div>
-    <div class="episode">
-      <div class=episode-title>krell</div>
-      <div class=episode-description></div>
-      <div class=episode-embed>
-        <audio controls>
-          <source src="horse.ogg" type="audio/ogg">
-          <source src="horse.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode">
+        <div class=episode-title>krell</div>
+        <div class=episode-description> a weird creature we found. makes good videogames tho.</div>
+        <div class=episode-embed>
+          <audio controls>
+            <source src="krell.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
       </div>
     </div>
   </div>
