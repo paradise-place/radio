@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Energy is the Right Kind of Energy</title>
+
+  <style>
+    html {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      margin: 0;
+      background-color: pink;
+      display: flex;
+      justify-content: center;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      font-family: 'Gill Sans', 'Gill Sans MT', "Calibri", 'Trebuchet MS', sans-serif;
+    }
+
+    p {
+      font-size: 2.5vh;
+      margin: 5vh;
+      margin-top: 10vh;
+    }
+
+    .content {
+      width: 40%;
+      margin-top: 40px;
+      border: blue;
+      border-width: 3px;
+      background-color: #aaffaa;
+      border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAVKADAAQAAAABAAAAVAAAAAC3aM1AAAABGklEQVR4Ae3c0Q7CIAwFUDX+/y/rM6TZWttFE8/eIJcOztiyJ243FwECBAh8KnAPBr6Cvk5XdI9Ove7YS9f36M7O+FUA6OrRbgFtE64FnmszbP3aNzCcZKGzu57Db7AdWngSmSjQjFIhA7SAlYkCzSgVMkALWJko0IxSIQO0gCVKgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgACBXSA6B24/2y3K7HX+qX3o41Sc4a0AFOiwwHA5OxTosMBwOTsU6LDAcLnMGcz7f1d1Ct/+j+3Ov7Rer3yJ6zwM9NyolABa4hImQIAAgSsF3gqrBzO4PuMOAAAAAElFTkSuQmCC") 28 / 28px / 0 round;
+      border-width: 28px;
+      border-style: solid;
+      rotate: 30deg;
+    }
+
+    h1 {
+      text-align: right;
+      font-size: 10vh;
+      font-family: Helvetica;
+      font-family: "Consolas", "Monaco", monospace;
+      margin-right: 20%;
+      animation-fill-mode: forwards;
+      margin-bottom: 3%;
+      font-weight: bold;
+
+      /* }
+
+    h1:hover { */
+      animation-name: example;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes example {
+      from {
+        rotate: -30deg
+      }
+
+      to {
+        rotate: -10deg
+      }
+    }
+
+    .episode-embed {}
+
+    .episode-description {}
+
+    .episode-title {
+      font-size: 1em;
+      margin-bottom: 1em;
+      margin-left: 1em;
+    }
+
+    .episodes-subtitle {
+      font-weight: bold;
+      font-size: 2vh;
+      margin-bottom: 1em;
+    }
+  </style>
+
+
+</head>
+
+
+<body>
+  <div id="content" class="content">
+    <em> welcome to </em>
+    <h1>paradise.fm</h1>
+    <p>Your bi-weekly podcast of at least somewhat interesting
+      <span style="text-decoration: line-through;">game</span>
+      creators.
+    </p>
+    <div class="episodes-subtitle">Listen our episodes here:</div>
+    <div class="episode">
+      <div class=episode-title>Pancelor Itchelor</div>
+      <div class=episode-description></div>
+      <div class=episode-embed>
+      </div>
+    </div>
+    <div class="episode">
+      <div class=episode-title>krell</div>
+      <div class=episode-description></div>
+      <div class=episode-embed>
+        <audio controls>
+          <source src="horse.ogg" type="audio/ogg">
+          <source src="horse.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  function main() {
+    const $body = document.body
+    const $debug = document.getElementById("debug")
+    const $content = document.getElementById("content")
+
+    function onMouseMove(e) {
+      console.log("mouseMove")
+      let mouseX = e.clientX / window.innerWidth
+      let mouseY = e.clientY / window.innerHeight
+      const bMin = 200
+      const bMax = 256
+      const rMin = 200
+      const rMax = 256
+      const gg = 180.
+      const bb = Math.floor(lerp(bMin, bMax, mouseX)).toString(16)
+      const rr = Math.floor(lerp(rMin, rMax, mouseY)).toString(16)
+
+      const color = `#${rr}${gg.toString(16)}${bb}`
+      $body.style.backgroundColor = color
+      let br = mouseX * 10 + 25
+      const bodyRotaiton = `${br}deg`
+      $content.style.rotate = bodyRotaiton
+      for (const p of document.querySelectorAll('p')) {
+        let br = mouseX * 6 + 4
+        const pRotation = `${-br}deg`
+        p.style.rotate = pRotation
+      }
+    }
+
+    function lerp(a, b, k) {
+      return a + k * (b - a)
+    }
+
+    $body.addEventListener("mousemove", onMouseMove)
+  }
+
+  main()
+
+</script>
+
+</html>
