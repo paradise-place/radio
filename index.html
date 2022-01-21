@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Energy is the Right Kind of Energy</title>
+  <title>paradise.fm</title>
 
   <style>
     html {
@@ -19,7 +19,7 @@
 
     body {
       margin: 0;
-      background-color: pink;
+      background-color: #ff77a8;
       display: flex;
       justify-content: center;
       top: 0;
@@ -28,20 +28,20 @@
       left: 0;
       position: absolute;
       font-family: 'Gill Sans', 'Gill Sans MT', "Calibri", 'Trebuchet MS', sans-serif;
+      height: 3000px;
     }
 
     p {
       font-size: 2.5vh;
-      margin: 5vh;
-      margin-top: 10vh;
+      margin: 4vh;
     }
 
     .content {
-      width: 40%;
+      width: 50%;
       margin-top: 40px;
       border: blue;
       border-width: 3px;
-      background-color: #aaffaa;
+      background-color: #78dc8f;
       border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAVKADAAQAAAABAAAAVAAAAAC3aM1AAAABGklEQVR4Ae3c0Q7CIAwFUDX+/y/rM6TZWttFE8/eIJcOztiyJ243FwECBAh8KnAPBr6Cvk5XdI9Ove7YS9f36M7O+FUA6OrRbgFtE64FnmszbP3aNzCcZKGzu57Db7AdWngSmSjQjFIhA7SAlYkCzSgVMkALWJko0IxSIQO0gCVKgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgACBXSA6B24/2y3K7HX+qX3o41Sc4a0AFOiwwHA5OxTosMBwOTsU6LDAcLnMGcz7f1d1Ct/+j+3Ov7Rer3yJ6zwM9NyolABa4hImQIAAgSsF3gqrBzO4PuMOAAAAAElFTkSuQmCC") 28 / 28px / 0 round;
       border-width: 28px;
       border-style: solid;
@@ -79,26 +79,41 @@
     }
 
     .episode {
-      margin-top: 1vh;
+      margin-top: 3vh;
       border-top: dashed 0.3vh black;
       border-width: 50%;
     }
 
-    .episode-embed {}
+    .episode-embed {
+      margin-top: 30vh;
+    }
 
     .episode-description {}
 
     .episode-title {
       font-size: 2em;
-      margin-bottom: 1em;
+      margin-bottom: 0;
       margin-left: 1em;
       margin-top: 1vh;
+
     }
 
     .episodes-subtitle {
       font-weight: bold;
       font-size: 2vh;
       margin-bottom: 1em;
+    }
+
+    .f {
+      font-size: 30em;
+      margin: 1000vh;
+      align-content: center;
+    }
+
+    .end {
+      margin-top: 300%;
+      align-content: center;
+      margin-left: 90%;
     }
   </style>
 
@@ -107,34 +122,45 @@
 
 
 <body>
+  <div id="f">
+    <a href="https://anchor.fm/brin-zvan" target="_blank">for podcast apps</a>
+  </div>
   <div id="content" class="content">
     <em> welcome to </em>
     <h1>paradise.fm</h1>
-    <p>Your bi-weekly podcast of at least somewhat interesting
+    <p>it's a bi-weekly podcast of at least somewhat interesting
       <span style="text-decoration: line-through;">game</span>
       creators.
     </p>
+    <p>
+      Listen to our episodes here:</b>
+    </p>
     <div class="episodes">
-      <div class="episodes-subtitle">Listen our episodes here:</div>
       <div class="episode">
-        <div class=episode-title>Pancelor Itchelor</div>
-        <div class=episode-description>we talk to our friend <a href="https://pancelor.itch.io">pancelor</a> about the cool pico-8 stuff they do.
-        </div>
-        <div class=episode-embed>
-        </div>
-      </div>
-      <div class="episode">
-        <div class=episode-title>krell</div>
-        <div class=episode-description> a weird creature we found. makes good videogames tho.</div>
-        <div class=episode-embed>
-          <audio controls>
-            <source src="krell.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+        <div class=episode-title>02-ash_k</div>
+        <div class=episode-description>juciy. coming soon.
         </div>
       </div>
     </div>
+    <div class="episode">
+      <div class=episode-title>01-pancelor</div>
+      <div class=episode-description>we talk to our friend <a href="https://pancelor.itch.io"
+          target="_blank">pancelor</a> about the
+        cool pico-8 stuff they do.
+        <br>
+        shownotes are <a href="01_pancelor shownotes.txt" target="_blank">here</a>
+      </div>
+    </div>
+    <audio controls>
+      <source src="01_Pancelor.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <div class="end">
+      you can never leave.
+    </div>
   </div>
+  </div>
+
 </body>
 
 <script>
@@ -147,23 +173,30 @@
       console.log("mouseMove")
       let mouseX = e.clientX / window.innerWidth
       let mouseY = e.clientY / window.innerHeight
-      const bMin = 200
-      const bMax = 256
-      const rMin = 200
-      const rMax = 256
-      const gg = 180.
-      const bb = Math.floor(lerp(bMin, bMax, mouseX)).toString(16)
-      const rr = Math.floor(lerp(rMin, rMax, mouseY)).toString(16)
 
-      const color = `#${rr}${gg.toString(16)}${bb}`
+      const rMin = 255
+      const rMax = 255
+      const gMin = 119
+      const gMax = 119
+      const bMin = 148
+      const bMax = 198
+
+      const rr = Math.floor(lerp(rMin, rMax, mouseY)).toString(16)
+      const gg = Math.floor(lerp(gMin, gMax, mouseY)).toString(16)
+      const bb = Math.floor(lerp(bMin, bMax, mouseX)).toString(16)
+
+      const color = `#${rr}${gg}${bb}`
       $body.style.backgroundColor = color
-      let br = mouseX * 10 + 25
+      let br = mouseX * 5 + 12
       const bodyRotaiton = `${br}deg`
       $content.style.rotate = bodyRotaiton
+      let i = 0
+
       for (const p of document.querySelectorAll('p')) {
-        let br = mouseX * 6 + 4
+        let br = mouseX * 6 + 4 + i
         const pRotation = `${-br}deg`
         p.style.rotate = pRotation
+        i = i - 5
       }
     }
 
