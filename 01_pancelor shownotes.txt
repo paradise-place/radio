@@ -1,9 +1,8 @@
 01_pancelor shownotes
-web serials:
-https://wanderinginn.com/
-https://www.parahumans.net/ (worm + ward)
-https://practicalguidetoevil.wordpress.com/
-other stuff we talked about:
+
+==============================
+ other stuff we talked about:
+==============================
 https://twitter.com/pancelor/status/1438617099673341958
 https://twitter.com/pancelor/status/1418664730684649472
 https://pancelor.itch.io/free-cell-1k
@@ -13,11 +12,24 @@ https://www.newgrounds.com/portal/view/770611
 https://juner.itch.io/sokosoko
 https://www.patricksparabox.com/
 https://pancelor.com/inbox-unbox
-pancelor:
+
+==============
+ web serials:
+==============
+https://wanderinginn.com/
+https://www.parahumans.net/ (worm + ward)
+https://practicalguidetoevil.wordpress.com/
+
+===========
+ pancelor:
+===========
 https://pancelor.com/
 https://pancelor.itch.io/
 https://twitter.com/pancelor
-brin:
+
+=======
+ brin:
+=======
 https://brin.design/
 https://brin-o.itch.io/
 https://twitter.com/brin_design
