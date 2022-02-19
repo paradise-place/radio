@@ -11,6 +11,19 @@
     :root {
       --bodyRot: 30deg;
       --bgColor: #ff77a8;
+      --animate: 1;
+    }
+    @media (prefers-reduced-motion) {
+      :root {
+        --bodyRot: 0deg;
+        --animate: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      :root {
+        --bodyRot: 0deg;
+        --animate: 0;
+      }
     }
 
     html {
@@ -192,15 +205,21 @@
 </body>
 
 <script>
-  function main() {
-    var r = document.querySelector(':root');
+  window.onload = function() {
+    var root = document.querySelector(':root');
 
     const $body = document.body
     const $debug = document.getElementById("debug")
     const $content = document.getElementById("content")
 
     function onMouseMove(e) {
-      console.log("mouseMove")
+      if (getStyle(root,"--animate") != 1) {
+        root.style.setProperty('--bodyRot', "0deg")
+        for (const p of document.querySelectorAll('p')) {
+          p.style.transform = 'none'
+        }
+        return
+      }
       let mouseX = e.clientX / window.innerWidth
       let mouseY = e.clientY / window.innerHeight
 
@@ -216,11 +235,11 @@
       const bb = Math.floor(lerp(bMin, bMax, mouseX)).toString(16)
 
       const color = `#${rr}${gg}${bb}`
-      r.style.setProperty('--bgColor', color)
+      root.style.setProperty('--bgColor', color)
       // $body.style.backgroundColor = color
       let br = mouseX * 5 + 12
       const bodyRotaiton = `${br}deg`
-      r.style.setProperty('--bodyRot', bodyRotaiton)
+      root.style.setProperty('--bodyRot', bodyRotaiton)
       //$content.style.rotate = bodyRotaiton
       let i = 0
 
@@ -236,10 +255,12 @@
       return a + k * (b - a)
     }
 
+    function getStyle(elem, prop) {
+      return window.getComputedStyle(elem, null).getPropertyValue(prop)
+    }
+
     $body.addEventListener("mousemove", onMouseMove)
   }
-
-  main()
 
 </script>
 
