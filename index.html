@@ -262,7 +262,8 @@
             const $content = document.getElementById("content")
 
             //check for browser, adjust audio players if on safari
-            if (navigator.userAgent.indexOf("Safari") != -1) {
+            var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            if (isSafari) {
                 console.log("Safari detected, beep boop fixing media player size!")
                 root.style.setProperty("--mediaPlayerSize", "90px")
             }
