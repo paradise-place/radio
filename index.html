@@ -1,321 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>paradise.fm</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paradise.fm</title>
 
-        <style>
+    <style>
+        :root {
+            --bodyRot: 30deg;
+            --bgColor: #ff77a8;
+            --animate: 1;
+            --mediaPlayerSize: 95%;
+        }
+
+        @media (prefers-reduced-motion) {
             :root {
-                --bodyRot: 30deg;
-                --bgColor: #ff77a8;
-                --animate: 1;
-                --mediaPlayerSize: 95%;
+                --bodyRot: 0deg;
+                --animate: 0;
             }
+        }
 
-            @media (prefers-reduced-motion) {
-                :root {
-                    --bodyRot: 0deg;
-                    --animate: 0;
-                }
+        @media (max-width: 600px) {
+            :root {
+                --bodyRot: 0deg;
+                --animate: 0;
             }
+        }
 
-            @media (max-width: 600px) {
-                :root {
-                    --bodyRot: 0deg;
-                    --animate: 0;
-                }
-            }
+        html {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
 
-            html {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-            }
+        body {
+            margin: 0;
+            background-color: var(--bgColor);
+            display: flex;
+            justify-content: center;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            font-family: 'Gill Sans', 'Gill Sans MT', "Calibri", 'Trebuchet MS', sans-serif;
+            height: 3000px;
+        }
 
-            body {
-                margin: 0;
-                background-color: var(--bgColor);
-                display: flex;
-                justify-content: center;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                left: 0;
-                position: absolute;
-                font-family: 'Gill Sans', 'Gill Sans MT', "Calibri", 'Trebuchet MS', sans-serif;
-                height: 3000px;
-            }
+        p {
+            font-size: 2.5vh;
+            margin: 4vh;
+        }
 
-            p {
-                font-size: 2.5vh;
-                margin: 4vh;
-            }
+        .content {
+            width: 50%;
+            margin-top: 40px;
+            border: blue;
+            border-width: 3px;
+            background-color: #78dc8f;
+            border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAVKADAAQAAAABAAAAVAAAAAC3aM1AAAABGklEQVR4Ae3c0Q7CIAwFUDX+/y/rM6TZWttFE8/eIJcOztiyJ243FwECBAh8KnAPBr6Cvk5XdI9Ove7YS9f36M7O+FUA6OrRbgFtE64FnmszbP3aNzCcZKGzu57Db7AdWngSmSjQjFIhA7SAlYkCzSgVMkALWJko0IxSIQO0gCVKgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgACBXSA6B24/2y3K7HX+qX3o41Sc4a0AFOiwwHA5OxTosMBwOTsU6LDAcLnMGcz7f1d1Ct/+j+3Ov7Rer3yJ6zwM9NyolABa4hImQIAAgSsF3gqrBzO4PuMOAAAAAElFTkSuQmCC") 28 / 28px / 0 round;
+            border-width: 28px;
+            border-style: solid;
+            transform: rotate(var(--bodyRot));
+        }
 
-            .content {
-                width: 50%;
-                margin-top: 40px;
-                border: blue;
-                border-width: 3px;
-                background-color: #78dc8f;
-                border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAVKADAAQAAAABAAAAVAAAAAC3aM1AAAABGklEQVR4Ae3c0Q7CIAwFUDX+/y/rM6TZWttFE8/eIJcOztiyJ243FwECBAh8KnAPBr6Cvk5XdI9Ove7YS9f36M7O+FUA6OrRbgFtE64FnmszbP3aNzCcZKGzu57Db7AdWngSmSjQjFIhA7SAlYkCzSgVMkALWJko0IxSIQO0gCVKgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgACBXSA6B24/2y3K7HX+qX3o41Sc4a0AFOiwwHA5OxTosMBwOTsU6LDAcLnMGcz7f1d1Ct/+j+3Ov7Rer3yJ6zwM9NyolABa4hImQIAAgSsF3gqrBzO4PuMOAAAAAElFTkSuQmCC") 28 / 28px / 0 round;
-                border-width: 28px;
-                border-style: solid;
-                transform: rotate(var(--bodyRot));
-            }
-
-            h1 {
-                text-align: right;
-                font-size: 10vh;
-                font-family: Helvetica;
-                font-family: "Consolas", "Monaco", monospace;
-                margin-right: 20%;
-                animation-fill-mode: forwards;
-                margin-bottom: 3%;
-                font-weight: bold;
-                /* }
+        h1 {
+            text-align: right;
+            font-size: 10vh;
+            font-family: Helvetica;
+            font-family: "Consolas", "Monaco", monospace;
+            margin-right: 20%;
+            animation-fill-mode: forwards;
+            margin-bottom: 3%;
+            font-weight: bold;
+            /* }
 
     h1:hover { */
-                animation-name: example;
-                animation-duration: 10s;
-                animation-iteration-count: infinite;
-                animation-direction: alternate;
-                animation-timing-function: ease-in-out;
-            }
-
-            @keyframes example {
-                from {
-                    transform: rotate(-30deg)
-                }
-
-                to {
-                    transform: rotate(-10deg)
-                }
-            }
-
-            .episode {
-                margin-top: 3vh;
-                border-top: dashed 0.3vh black;
-                border-width: 50%;
-            }
-
-            .episode-description {}
-
-            .episode-title {
-                font-size: 2em;
-                margin-bottom: 0;
-                margin-left: 1em;
-                margin-top: 1vh;
-            }
-
-            .episodes-subtitle {
-                font-weight: bold;
-                font-size: 2vh;
-                margin-bottom: 1em;
-            }
-
-            .f {
-                font-size: 30em;
-                margin: 1000vh;
-                align-content: center;
-            }
-
-            .end {
-                margin-top: 300%;
-                align-content: center;
-                margin-left: 90%;
-            }
-
-            #player {
-                width: var(--mediaPlayerSize);
-                margin: 2%;
-            }
-
-            .void {
-                text-align: center;
-                animation-name: void;
-                animation-duration: 80s;
-                animation-iteration-count: infinite;
-                animation-direction: alternate;
-                animation-timing-function: ease-in-out;
-            }
-
-            @keyframes void {
-                from {
-                    transform: rotate(0deg)
-                }
-
-                to {
-                    transform: rotate(360deg)
-                }
-            }
-        </style>
-
-
-    </head>
-
-
-    <body>
-        <div id="f">
-            <a href="https://anchor.fm/paradisefm" target="_blank">for podcast apps</a>
-        </div>
-        <div id="content" class="content">
-            <em> welcome to </em>
-            <h1>paradise.fm</h1>
-            <p>it's a bi-weekly podcast of at least somewhat interesting
-                <span style="text-decoration: line-through;">game</span> creators.
-            </p>
-            <div class="void">
-                <a href="http://brin.neocities.org/">←</a>
-                <a href="https://youcanneverleave.art/"> ( webvoid ) </a>
-                <a href="http://mergrazzini.itch.io/">→</a>
-            </div>
-
-            <p>
-                Listen to our episodes here:</b>
-            </p>
-            <div class="episodes">
-                <div class="episode">
-                    <div class=episode-title>05-tally</div>
-                    <div class=episode-description><a href="https://tallywinkle.itch.io" target="_blank">tally</a> and
-                        brin (still with a bad mic) talk about national parks, money, divination, coffee shops and
-                        skeletons going to coffee shops.
-                        <br>
-                        i promise my mic will get better one day.
-                        <br><a href="05_tally.txt" target="_blank">shownotes</a>, this time organised.
-                    </div>
-                    <audio id="player" controls>
-                        <source src="05_tally.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="episode">
-                    <div class=episode-title>04-mer</div>
-                    <div class=episode-description><a href="https://mergrazzini.itch.io" target="_blank">mer</a> talks
-                        to brin, who has a very bad microphone this epsiode about waking up late, langauges, game a
-                        week, style, last names and more.
-                        <br> shownotes, as always, are <a href="04_mer.txt" target="_blank">here</a>
-                    </div>
-                    <audio id="player" controls>
-                        <source src="04_mer.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="episode">
-                    <div class=episode-title>03-milkman</div>
-                    <div class=episode-description><a href="https://sirmilkman.itch.io" target="_blank">milkman</a> is
-                        lactose intolerant, but not cool-game-making intolerant. we talk about milk, birds, weirdly
-                        popular games and the hit game that is aligator on fire simulator!
-                        <br> shownotes are <a href="03_milkman.txt" target="_blank">here</a>
-                    </div>
-                    <audio id="player" controls>
-                        <source src="03_milkman.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="episode">
-                    <div class=episode-title>02-ash</div>
-                    <div class=episode-description><a href="https://ash-k.itch.io" target="_blank">ash</a> talks and so
-                        does brin sometimes. about juice, thumper, too many projects and more.
-                        <br> shownotes are <a href="02_ash.txt" target="_blank">here</a>
-                    </div>
-                    <audio id="player" controls>
-                        <source src="02_ash.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-
-                <div class="episode">
-                    <div class=episode-title>01-pancelor</div>
-                    <div class=episode-description>we talk to our friend <a href="https://pancelor.com"
-                            target="_blank">pancelor</a> about the cool pico-8 stuff they do.
-                        <br> shownotes are <a href="01_pancelor shownotes.txt" target="_blank">here</a>
-                    </div>
-                    <audio id="player" controls>
-                        <source src="01_Pancelor.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-            </div>
-
-            <div class="end">
-                you can never leave.
-            </div>
-        </div>
-        </div>
-
-    </body>
-
-    <script>
-        window.onload = function () {
-
-
-            var root = document.querySelector(':root');
-
-            const $body = document.body
-            const $debug = document.getElementById("debug")
-            const $content = document.getElementById("content")
-
-            //check for browser, adjust audio players if on safari
-            if (navigator.userAgent.indexOf("Safari") != -1) {
-                console.log("Safari detected, beep boop fixing media player size!")
-                root.style.setProperty("--mediaPlayerSize", "90px")
-            }
-
-            function onMouseMove(e) {
-                if (getStyle(root, "--animate") != 1) {
-                    root.style.setProperty('--bodyRot', "0deg")
-                    for (const p of document.querySelectorAll('p')) {
-                        p.style.transform = 'none'
-                    }
-                    return
-                }
-                let mouseX = e.clientX / window.innerWidth
-                let mouseY = e.clientY / window.innerHeight
-
-                const rMin = 255
-                const rMax = 255
-                const gMin = 119
-                const gMax = 119
-                const bMin = 148
-                const bMax = 198
-
-                const rr = Math.floor(lerp(rMin, rMax, mouseY)).toString(16)
-                const gg = Math.floor(lerp(gMin, gMax, mouseY)).toString(16)
-                const bb = Math.floor(lerp(bMin, bMax, mouseX)).toString(16)
-
-                const color = `#${rr}${gg}${bb}`
-                root.style.setProperty('--bgColor', color)
-                // $body.style.backgroundColor = color
-                let br = mouseX * 5 + 12
-                const bodyRotaiton = `${br}deg`
-                root.style.setProperty('--bodyRot', bodyRotaiton)
-                //$content.style.rotate = bodyRotaiton
-                let i = 0
-
-                for (const p of document.querySelectorAll('p')) {
-                    let br = mouseX * 6 + 4 + i
-                    const pRotation = `${-br}deg`
-                    p.style.transform = 'rotate(' + pRotation + ')';
-                    i = i - 5
-                }
-            }
-
-            function lerp(a, b, k) {
-                return a + k * (b - a)
-            }
-
-            function getStyle(elem, prop) {
-                return window.getComputedStyle(elem, null).getPropertyValue(prop)
-            }
-
-            $body.addEventListener("mousemove", onMouseMove)
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
         }
-    </script>
+
+        @keyframes example {
+            from {
+                transform: rotate(-30deg)
+            }
+
+            to {
+                transform: rotate(-10deg)
+            }
+        }
+
+        .episode {
+            margin-top: 3vh;
+            border-top: dashed 0.3vh black;
+            border-width: 50%;
+        }
+
+        .episode-description {}
+
+        .episode-title {
+            font-size: 2em;
+            margin-bottom: 0;
+            margin-left: 1em;
+            margin-top: 1vh;
+        }
+
+        .episodes-subtitle {
+            font-weight: bold;
+            font-size: 2vh;
+            margin-bottom: 1em;
+        }
+
+        .f {
+            font-size: 30em;
+            margin: 1000vh;
+            align-content: center;
+        }
+
+        .end {
+            margin-top: 300%;
+            align-content: center;
+            margin-left: 90%;
+        }
+
+        #player {
+            width: var(--mediaPlayerSize);
+            margin: 2%;
+        }
+
+        .void {
+            text-align: center;
+            animation-name: void;
+            animation-duration: 80s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes void {
+            from {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <div id="f">
+        <a href="https://anchor.fm/paradisefm" target="_blank">for podcast apps</a>
+    </div>
+    <div id="content" class="content">
+        <em> welcome to </em>
+        <h1>paradise.fm</h1>
+        <p>it's a <del>bi-weekly</del> whenever it gets released podcast of at least somewhat interesting
+            <span style="text-decoration: line-through;">game</span> creators.
+        </p>
+        <div class="void">
+            <a href="http://brin.neocities.org/">←</a>
+            <a href="https://youcanneverleave.art/"> ( webvoid ) </a>
+            <a href="http://mergrazzini.itch.io/">→</a>
+        </div>
+
+        <p>
+            Listen to our episodes here:</b>
+        </p>
+        <div class="episodes">
+            <div class="episode">
+                <div class=episode-title>05-boredome</div>
+                <div class=episode-description><a href="https://goblin-rage.itch.io/" target="_blank">two goblins</a>
+                    and
+                    brin talk in the beautiful botanical garden of copenhagen about dvd games, credits, weird media
+                    platforms and the making of boredome.
+                    <br><a href="06_boredome.txt" target="_blank">shownotes</a>, semi done.
+                </div>
+                <audio id="player" controls>
+                    <source src="06_boredome.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="episode">
+                <div class=episode-title>05-tally</div>
+                <div class=episode-description><a href="https://tallywinkle.itch.io" target="_blank">tally</a> and
+                    brin (still with a bad mic) talk about national parks, money, divination, coffee shops and
+                    skeletons going to coffee shops.
+                    <br>
+                    i promise my mic will get better one day.
+                    <br><a href="05_tally.txt" target="_blank">shownotes</a>, this time organised.
+                </div>
+                <audio id="player" controls>
+                    <source src="05_tally.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="episode">
+                <div class=episode-title>04-mer</div>
+                <div class=episode-description><a href="https://mergrazzini.itch.io" target="_blank">mer</a> talks
+                    to brin, who has a very bad microphone this epsiode about waking up late, langauges, game a
+                    week, style, last names and more.
+                    <br> shownotes, as always, are <a href="04_mer.txt" target="_blank">here</a>
+                </div>
+                <audio id="player" controls>
+                    <source src="04_mer.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="episode">
+                <div class=episode-title>03-milkman</div>
+                <div class=episode-description><a href="https://sirmilkman.itch.io" target="_blank">milkman</a> is
+                    lactose intolerant, but not cool-game-making intolerant. we talk about milk, birds, weirdly
+                    popular games and the hit game that is aligator on fire simulator!
+                    <br> shownotes are <a href="03_milkman.txt" target="_blank">here</a>
+                </div>
+                <audio id="player" controls>
+                    <source src="03_milkman.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="episode">
+                <div class=episode-title>02-ash</div>
+                <div class=episode-description><a href="https://ash-k.itch.io" target="_blank">ash</a> talks and so
+                    does brin sometimes. about juice, thumper, too many projects and more.
+                    <br> shownotes are <a href="02_ash.txt" target="_blank">here</a>
+                </div>
+                <audio id="player" controls>
+                    <source src="02_ash.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <div class="episode">
+                <div class=episode-title>01-pancelor</div>
+                <div class=episode-description>we talk to our friend <a href="https://pancelor.com"
+                        target="_blank">pancelor</a> about the cool pico-8 stuff they do.
+                    <br> shownotes are <a href="01_pancelor shownotes.txt" target="_blank">here</a>
+                </div>
+                <audio id="player" controls>
+                    <source src="01_Pancelor.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <div class="end">
+            you can never leave.
+        </div>
+    </div>
+    </div>
+
+</body>
+
+<script>
+    window.onload = function () {
+
+
+        var root = document.querySelector(':root');
+
+        const $body = document.body
+        const $debug = document.getElementById("debug")
+        const $content = document.getElementById("content")
+
+        //check for browser, adjust audio players if on safari
+        if (navigator.userAgent.indexOf("Safari") != -1) {
+            console.log("Safari detected, beep boop fixing media player size!")
+            root.style.setProperty("--mediaPlayerSize", "90px")
+        }
+
+        function onMouseMove(e) {
+            if (getStyle(root, "--animate") != 1) {
+                root.style.setProperty('--bodyRot', "0deg")
+                for (const p of document.querySelectorAll('p')) {
+                    p.style.transform = 'none'
+                }
+                return
+            }
+            let mouseX = e.clientX / window.innerWidth
+            let mouseY = e.clientY / window.innerHeight
+
+            const rMin = 255
+            const rMax = 255
+            const gMin = 119
+            const gMax = 119
+            const bMin = 148
+            const bMax = 198
+
+            const rr = Math.floor(lerp(rMin, rMax, mouseY)).toString(16)
+            const gg = Math.floor(lerp(gMin, gMax, mouseY)).toString(16)
+            const bb = Math.floor(lerp(bMin, bMax, mouseX)).toString(16)
+
+            const color = `#${rr}${gg}${bb}`
+            root.style.setProperty('--bgColor', color)
+            // $body.style.backgroundColor = color
+            let br = mouseX * 5 + 12
+            const bodyRotaiton = `${br}deg`
+            root.style.setProperty('--bodyRot', bodyRotaiton)
+            //$content.style.rotate = bodyRotaiton
+            let i = 0
+
+            for (const p of document.querySelectorAll('p')) {
+                let br = mouseX * 6 + 4 + i
+                const pRotation = `${-br}deg`
+                p.style.transform = 'rotate(' + pRotation + ')';
+                i = i - 5
+            }
+        }
+
+        function lerp(a, b, k) {
+            return a + k * (b - a)
+        }
+
+        function getStyle(elem, prop) {
+            return window.getComputedStyle(elem, null).getPropertyValue(prop)
+        }
+
+        $body.addEventListener("mousemove", onMouseMove)
+    }
+</script>
 
 </html>
